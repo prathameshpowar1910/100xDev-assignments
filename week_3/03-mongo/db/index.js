@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ppowar1910:UTPO*123@cluster0.gfdfpf2.mongodb.net/');
+mongoose.connect('monoguri');
 
 const AdminSchema = new Schema({
     username: String,
