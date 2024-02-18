@@ -1,26 +1,34 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 // Connect to MongoDB
-mongoose.connect('your-mongodb-url');
+mongoose.connect('mongodb+srv://ppowar1910:UTPO*123@cluster0.gfdfpf2.mongodb.net/');
 
-// Define schemas
-const AdminSchema = new mongoose.Schema({
-    // Schema definition here
+const AdminSchema = new Schema({
+    username: String,
+    password: String
 });
 
-const UserSchema = new mongoose.Schema({
-    // Schema definition here
+const UserSchema = new Schema({
+    username: String,
+    password: String,
+    purchasedCousee:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Course'
+    }]
 });
 
-const CourseSchema = new mongoose.Schema({
-    // Schema definition here
+const CourseSchema = new Schema({
+    title: String,
+    description: String,
+    imageLink: String,
+    price: Number,
 });
 
-const Admin = mongoose.model('Admin', AdminSchema);
-const User = mongoose.model('User', UserSchema);
-const Course = mongoose.model('Course', CourseSchema);
+const Admin = model('Admin', AdminSchema);
+const User = model('User', UserSchema);
+const Course = model('Course', CourseSchema);
 
-module.exports = {
+export default {
     Admin,
     User,
     Course
