@@ -1,7 +1,8 @@
 import { Schema, model } from 'mongoose';
-
+import { connect } from 'mongoose';
 // Connect to MongoDB
-mongoose.connect('monoguri');
+const DB_NAME = 'course_selling_app';
+connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
 
 const AdminSchema = new Schema({
     username: String,
@@ -28,7 +29,7 @@ const Admin = model('Admin', AdminSchema);
 const User = model('User', UserSchema);
 const Course = model('Course', CourseSchema);
 
-export default {
+export {
     Admin,
     User,
     Course

@@ -1,4 +1,4 @@
-import User from '../db/index.js'
+import {User} from '../db/index.js'
 
 async function userMiddleware(req, res, next) {
     // Implement user auth logic
