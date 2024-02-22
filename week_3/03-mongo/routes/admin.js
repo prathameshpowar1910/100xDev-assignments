@@ -1,13 +1,9 @@
-import express from "express";
-import bodyParser from "body-parser";
 import { Router } from "express";
 import adminMiddleware from "../middleware/admin.js";
 import { Admin, Course } from "../db/index.js";
 
-const app = express();
 const router = Router();
 
-app.use(bodyParser.json());
 // Admin Routes
 router.post("/signup", async (req, res) => {
   // Implement admin signup logic
@@ -38,10 +34,10 @@ router.post("/courses", adminMiddleware, async (req, res) => {
   const price = req.body.price;
   const imageLink = req.body.imageLink;
   const course = await Course.create({
-    title: req.body.title,
-    description: req.body.description,
-    imageLink: req.body.imageLink,
-    price: req.body.price,
+    title,
+    description,
+    imageLink,
+    price,
   });
 
     if (!course) {

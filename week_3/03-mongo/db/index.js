@@ -12,7 +12,7 @@ const AdminSchema = new Schema({
 const UserSchema = new Schema({
     username: String,
     password: String,
-    purchasedCousee:[{
+    purchasedCourses:[{
         type: Schema.Types.ObjectId,
         ref: 'Course'
     }]
