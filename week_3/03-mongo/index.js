@@ -1,11 +1,8 @@
+import 'dotenv/config'
 import express from 'express';
 const app = express();
 import adminRouter from "./routes/admin.js";
 import userRouter from "./routes/user.js";
-import dotenv from 'dotenv';
-dotenv.config({
-    path: "./.env",
-});
   
 // Middleware for parsing request bodies
 app.use(express.json());

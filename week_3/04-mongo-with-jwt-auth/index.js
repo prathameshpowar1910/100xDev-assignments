@@ -1,11 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
 const app = express();
-const adminRouter = require("./routes/admin")
-const userRouter = require("./routes/user");
-
+import adminRouter from "./routes/admin";
+import userRouter from "./routes/user";
+import dotenv from 'dotenv';
 // Middleware for parsing request bodies
-app.use(bodyParser.json());
+dotenv.config({
+    path: "./.env"
+})
+
+app.use(express.json());
 app.use("/admin", adminRouter)
 app.use("/user", userRouter)
 
